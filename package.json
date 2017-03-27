@@ -1,6 +1,6 @@
 {
   "name": "generator-zcy-front-starter-kit",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "政采云前端脚手架",
   "homepage": "",
   "author": {
@@ -42,7 +42,7 @@
       "mocha": true
     }
   },
-  "repository": "chenkaixia@126.com/generator-zcy-front-starter-kit",
+  "repository": "chenkaixia/generator-zcy-front-starter-kit",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
