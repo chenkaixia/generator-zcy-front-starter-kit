@@ -1,29 +1,46 @@
 
 # <%= product %>
 
-- 面向用户： <%= users %>
-
-
 ## 目录结构
 
-```src/```里含有一个TodoMVC的示例代码，```npm start```后在[http://localhost:5959/](http://localhost:5959/)可查看Demo    
+```src/```里含有示例```npm start```后在[http://localhost:3000/](http://localhost:3000/)可查看Demo    
 
 ```
-src/
-├── index.html
-├── index.js
-├── base.css        在normalize.css基础上，业务定制的基础样式
-├── assets/         图片等静态资源，可直接放在assets，不用另建images之类的目录
-├── actions/
-├── components/     业务组件
-├── constants/      统一导出一些必要的常量
-├── containers/
-├── middleware/     中间件(如果需要)
-├── reducers/
-└── store/
+.
+├── bin                      # Build/Start scripts
+├── config                   # Project and build configurations
+├── public                   # Static public assets (not imported anywhere in source code)
+├── server                   # Express application that provides webpack middleware
+│   └── main.js              # Server application entry point
+├── src                      # Application source code
+│   ├── index.html           # Main HTML page container for app
+│   ├── main.js              # Application bootstrap and rendering
+│   ├── components           # Global Reusable Presentational Components
+│   ├── containers           # Global Reusable Container Components
+│   ├── layouts              # Components that dictate major page structure
+│   │   └── CoreLayout.js    # CoreLayout which receives children for each route
+│   │   └── CoreLayout.scss  # Styles related to the CoreLayout
+│   │   └── index.js         # Main file for layout
+│   ├── routes               # Main route definitions and async split points
+│   │   ├── index.js         # Bootstrap main application routes with store
+│   │   ├── Home             # Fractal route
+│   │   │   ├── index.js     # Route definitions and async split points
+│   │   │   ├── assets       # Assets required to render components
+│   │   │   ├── components   # Presentational React Components
+│   │   │   └── routes **    # Fractal sub-routes (** optional)
+│   │   └── Counter          # Fractal route
+│   │       ├── index.js     # Counter route definition
+│   │       ├── container    # Connect components to actions and store
+│   │       ├── modules      # Collections of reducers/constants/actions
+│   │       └── routes **    # Fractal sub-routes (** optional)
+│   ├── store                # Redux-specific pieces
+│   │   ├── createStore.js   # Create and instrument redux store
+│   │   └── reducers.js      # Reducer registry and injection
+│   └── styles               # Application-wide styles (generally settings)
+└── tests                    # Unit tests
 ```
 
-## 涉及技术栈 (RRRW)
+## 涉及技术栈 
 
 - [x] [React](https://facebook.github.io/react/)
 - [x] [Redux](https://github.com/reactjs/redux)
@@ -33,8 +50,6 @@ src/
 - [x] [Babel](https://babeljs.io/)
 - [x] [Autoprefixer](https://github.com/postcss/autoprefixer)
 - [x] [PostCSS](https://github.com/postcss/postcss)
-- [x] [CSS modules](https://github.com/outpunk/postcss-modules)
-- [x] TodoMVC 示例
 - [ ] 还有哪些你认为有价值的优化点？随时联系@大海
 
 ## 安装(如果还需要的话)
